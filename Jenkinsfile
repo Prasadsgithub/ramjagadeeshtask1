@@ -38,7 +38,7 @@ pipeline {
                     // Tool name from Jenkins configuration.
                     tool: 'MAVEN_HOME',
                     pom: 'pom.xml',
-                    goals: 'install',
+                    goals: 'clean install',
                     // Maven options.
                     deployerId: 'spc-deployer'
                 )
