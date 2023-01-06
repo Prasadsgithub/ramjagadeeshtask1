@@ -25,8 +25,8 @@ pipeline {
                 rtMavenDeployer (
                     id: 'spc-deployer',
                     serverId: 'JFROG_LATEST',
-                    releaseRepo: "spring-new-libs-release",
-                    snapshotRepo: "spring-new-libs-snapshot"
+                    releaseRepo: "spring-new-libs-release-local",
+                    snapshotRepo: "spring-new-libs-snapshot-local"
                 )
             }
         } 
