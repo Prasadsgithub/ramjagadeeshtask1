@@ -28,7 +28,6 @@ pipeline {
                     serverId: 'JFROG_LATEST',
                     releaseRepo: "spring-new-libs-release-local",
                     snapshotRepo: "spring-new-libs-snapshot-local",
-                    deployerId: 'spc-deployer'
                 )
             }
         } 
@@ -40,7 +39,7 @@ pipeline {
                     pom: 'pom.xml',
                     goals: 'clean install',
                     // Maven options.
-                    deployerId: 'jfrog-token'
+                    deployerId: 'JFROG_LATEST'
                 )
             }
         }  
