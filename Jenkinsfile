@@ -17,16 +17,18 @@ pipeline {
             steps {
                 withSonarQubeEnv('SONAR_LATEST') {
                     sh 'mvn clean package sonar:sonar'
+
                 }
             }
         }
         stage('Artifactory-Configuration') {
             steps {
                 rtMavenDeployer (
-                    id: 'spc-deployer',
+                    id: 'JFROG_TOKEN',
                     serverId: 'JFROG_LATEST',
                     releaseRepo: "spring-new-libs-release-local",
-                    snapshotRepo: "spring-new-libs-snapshot-local"
+                    snapshotRepo: "spring-new-libs-snapshot-local",
+                    deployerId: 'spc-deployer'
                 )
             }
         } 
@@ -38,7 +40,7 @@ pipeline {
                     pom: 'pom.xml',
                     goals: 'clean install',
                     // Maven options.
-                    deployerId: 'spc-deployer'
+                    deployerId: 'JFROG_TOKEN'
                 )
             }
         }  
