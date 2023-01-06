@@ -39,7 +39,7 @@ pipeline {
                     pom: 'pom.xml',
                     goals: 'clean install',
                     // Maven options.
-                    deployerId: 'JFROG_LATEST'
+                    deployerId: 'jfrog-token'
                 )
             }
         }  
