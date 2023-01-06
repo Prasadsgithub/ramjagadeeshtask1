@@ -24,7 +24,7 @@ pipeline {
         stage('Artifactory-Configuration') {
             steps {
                 rtMavenDeployer (
-                    id: 'JFROG_TOKEN',
+                    id: 'jfrog-token',
                     serverId: 'JFROG_LATEST',
                     releaseRepo: "spring-new-libs-release-local",
                     snapshotRepo: "spring-new-libs-snapshot-local",
@@ -40,7 +40,7 @@ pipeline {
                     pom: 'pom.xml',
                     goals: 'clean install',
                     // Maven options.
-                    deployerId: 'JFROG_TOKEN'
+                    deployerId: 'jfrog-token'
                 )
             }
         }  
